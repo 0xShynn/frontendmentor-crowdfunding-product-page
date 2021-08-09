@@ -42,7 +42,7 @@ const Home = () => {
               </Heading>
               <Text
                 color="neutral.darkGray"
-                fontSize="sm"
+                fontSize={['sm', 'md']}
                 mb={{ base: 6, md: 8 }}
               >
                 A beautiful & handcrafted monitor stand to reduce neck and eye
