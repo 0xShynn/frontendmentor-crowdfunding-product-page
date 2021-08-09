@@ -56,6 +56,7 @@ const Header = () => {
               key={link + Math.random()}
               color="white"
               fontSize="sm"
+              fontWeight="bold"
             >
               {link}
             </Link>
