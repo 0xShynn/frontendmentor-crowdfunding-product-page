@@ -10,12 +10,10 @@ const customTheme = extendTheme({
       body: {
         fontSize: '16px',
         fontFamily: 'body',
+        backgroundColor: '#FAFAFA',
       },
       a: {
-        transition: 'background-color 3s, color 1s',
-        _hover: {
-          textDecoration: 'none',
-        },
+        _hover: {},
       },
     },
   },
@@ -30,6 +28,16 @@ const customTheme = extendTheme({
     },
     neutral: {
       darkGray: 'hsl(0, 0%, 48%)',
+    },
+  },
+  components: {
+    Box: {
+      variants: {
+        content: {
+          border: '1px',
+          borderColor: 'gray.100',
+        },
+      },
     },
   },
 });
