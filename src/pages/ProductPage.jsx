@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Button,
@@ -7,14 +8,14 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import React from 'react';
 import Header from '../components/Header';
+import ButtonBookmark from '../components/ButtonBookmark';
+
 import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
 import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
-import ButtonBookmark from '../components/ButtonBookmark';
 
-const Home = () => {
+const ProductPage = () => {
   return (
     <Box>
       <Box
@@ -80,4 +81,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ProductPage;
