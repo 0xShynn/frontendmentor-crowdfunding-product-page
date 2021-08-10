@@ -14,15 +14,10 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import CrowdFundLogo from '../assets/svg/logo-crowdfund.svg';
 import { NavLinks } from '../utils/navLinks';
 
-interface INavLink {
-  children: string;
-  index: number;
-}
-
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const NavLink: React.FC<INavLink> = ({ children, index }) => (
+  const NavLink = ({ children, index }) => (
     <Link
       href="#"
       textAlign="left"
