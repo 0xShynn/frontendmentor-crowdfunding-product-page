@@ -35,6 +35,7 @@ const Home = () => {
                   pos="absolute"
                   top="-28px"
                   zIndex="base"
+                  alt="Mastercraft logo"
                 />
               </Flex>
               <Heading fontSize={{ base: 'xl', md: '2xl' }} mb="4" px="4">

@@ -45,8 +45,8 @@ const Header = () => {
   return (
     <Box mb={{ base: '24', md: '48' }}>
       <Flex align="center" p="6" justifyContent="space-between">
-        <Link zIndex="overlay">
-          <Image src={CrowdFundLogo} h="20px" />
+        <Link zIndex="overlay" href="#">
+          <Image src={CrowdFundLogo} h="20px" alt="Crowdfund logo" />
         </Link>
 
         <HStack as="nav" spacing="6" display={{ base: 'none', md: 'flex' }}>
