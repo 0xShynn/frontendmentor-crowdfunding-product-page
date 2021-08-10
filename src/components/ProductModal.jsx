@@ -10,14 +10,12 @@ import {
   RadioGroup,
   Stack,
   Text,
-  VStack,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import ProductItem from './ProductItem';
 
 const ProductModal = ({ isOpen, onClose }) => {
-  const [value, setValue] = useState('');
-  console.log(value);
+  const [value, setValue] = useState(null);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -26,7 +24,11 @@ const ProductModal = ({ isOpen, onClose }) => {
         <ModalHeader as="h2" mt="4">
           Back this project
         </ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton
+          onClick={() => {
+            setValue(null);
+          }}
+        />
         <ModalBody>
           <Text mb="6">
             Want to support us bringing Mastercraft Bamboo Monitor Rising out in
@@ -45,6 +47,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 ticketsLeft={34}
                 availability="available"
                 value="1"
+                selectedValue={value}
               />
               <ProductItem
                 title="Bamboo Edition Stand"
@@ -56,6 +59,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 ticketsLeft={34}
                 availability="available"
                 value="2"
+                selectedValue={value}
               />
               <ProductItem
                 title="Bamboo Edition Stand"
@@ -67,6 +71,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 ticketsLeft={34}
                 availability="available"
                 value="3"
+                selectedValue={value}
               />
             </Stack>
           </RadioGroup>
