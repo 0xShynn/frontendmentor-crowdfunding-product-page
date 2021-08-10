@@ -68,6 +68,7 @@ const Header = () => {
           display={{ md: 'none' }}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           onClick={isOpen ? onClose : onOpen}
+          zIndex="overlay"
         />
       </Flex>
 
@@ -87,6 +88,7 @@ const Header = () => {
           >
             <VStack
               boxSize="full"
+              w={{ base: 'full', sm: '80' }}
               as="nav"
               spacing="0"
               bg={'white'}
@@ -95,6 +97,7 @@ const Header = () => {
               h="fit-content"
               mx="6"
               divider={<StackDivider borderColor="gray.00" />}
+              shadow="2xl"
             >
               {NavLinks.map((link, index) => (
                 <NavLink key={link + Math.random()} index={index}>
