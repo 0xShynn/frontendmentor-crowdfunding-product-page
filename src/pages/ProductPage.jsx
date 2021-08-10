@@ -6,18 +6,12 @@ import {
   Flex,
   Heading,
   Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import Header from '../components/Header';
 import ButtonBookmark from '../components/ButtonBookmark';
+import ProductModal from '../components/ProductModal';
 
 import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
@@ -27,23 +21,7 @@ const ProductPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <Box>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
-        <ModalContent m="6">
-          <ModalHeader as="h2">Back this project</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>Content</Text>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr="3" onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-
+      <ProductModal isOpen={isOpen} onClose={onClose} />
       <Box
         bgImage={{ base: imageHeroMobile, md: imageHeroDesktop }}
         h="400px"
