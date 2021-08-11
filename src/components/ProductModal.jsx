@@ -20,7 +20,7 @@ const ProductModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent m="6">
+      <ModalContent m="6" maxW="540px">
         <ModalHeader as="h2" mt="4">
           Back this project
         </ModalHeader>
@@ -38,37 +38,39 @@ const ProductModal = ({ isOpen, onClose }) => {
           <RadioGroup onChange={setValue} value={value}>
             <Stack spacing="4">
               <ProductItem
+                title="Pledge with no reward"
+                desc="Choose to support us with no reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
+                value="0"
+                selectedValue={value}
+              />
+              <ProductItem
                 title="Bamboo Stand"
                 desc="You get a Black Special Edition computer stand and a personal
                   thank you. You'll be added to our Backer member list. Shipping
                   is included."
                 minPledgeAmount={25}
-                ticketsTotal={200}
-                ticketsLeft={34}
+                ticketsTotal={2000}
+                ticketsLeft={1930}
                 availability="available"
                 value="1"
                 selectedValue={value}
               />
               <ProductItem
-                title="Bamboo Edition Stand"
-                desc="You get a Black Special Edition computer stand and a personal
-                  thank you. You'll be added to our Backer member list. Shipping
-                  is included."
-                minPledgeAmount={25}
-                ticketsTotal={200}
-                ticketsLeft={34}
+                title="Black Edition Stand"
+                desc="You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included."
+                minPledgeAmount={75}
+                ticketsTotal={400}
+                ticketsLeft={378}
                 availability="available"
                 value="2"
                 selectedValue={value}
               />
               <ProductItem
-                title="Bamboo Edition Stand"
-                desc="You get a Black Special Edition computer stand and a personal
-                  thank you. You'll be added to our Backer member list. Shipping
-                  is included."
-                minPledgeAmount={25}
-                ticketsTotal={200}
-                ticketsLeft={34}
+                title="Mahogany Special Edition"
+                desc="You get two Special Edition Mahogany stands, a Backer T-shirt and a personal thank you. You'll be added to our Backer member list. Shipping is included."
+                minPledgeAmount={200}
+                ticketsTotal={100}
+                ticketsLeft={94}
                 availability="available"
                 value="3"
                 selectedValue={value}

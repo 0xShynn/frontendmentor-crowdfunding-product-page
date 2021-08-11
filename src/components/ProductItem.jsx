@@ -64,7 +64,7 @@ const ProductItem = ({
         align="center"
         p="6"
         borderTopWidth="1px"
-        display={value === selectedValue ? 'flex' : 'none'}
+        display={value === selectedValue && value !== '0' ? 'flex' : 'none'}
       >
         <Text mb="4">Enter your pledge</Text>
         <Flex justify="space-between" w="full">
@@ -83,6 +83,7 @@ const ProductItem = ({
               fontSize="sm"
               fontWeight="bold"
               inputMode="numeric"
+              min={minPledgeAmount}
             />
           </InputGroup>
 
