@@ -26,11 +26,47 @@ const ProductItem = ({
       rounded="lg"
       borderWidth="2px"
       mb="0"
+      mx="0"
       p="0"
       borderColor={value === selectedValue ? 'primary.modeCyan' : 'gray.100'}
     >
       <Box p="6">
-        <Flex>
+        {/* mobile header */}
+        <Flex display={['flex', 'none']} align="center" mb="4">
+          <Flex pr="4" align="flex-start">
+            <Radio
+              size="lg"
+              value={value}
+              _checked={{
+                borderColor: 'gray.100',
+                borderWidth: '4px',
+                bg: 'primary.modeCyan',
+                outlineColor: 'red',
+              }}
+              borderColor="gray.200"
+            />
+          </Flex>
+          <Flex direction="column">
+            <Heading as="h3" fontSize="sm" mr={['0', '4']} mb={['1', '0']}>
+              {title}
+            </Heading>
+            <Text
+              fontWeight="bold"
+              fontSize="sm"
+              color="primary.modeCyan"
+              display={itemZero ? 'none' : 'inline'}
+            >
+              Pledge ${minPledgeAmount} or more
+            </Text>
+          </Flex>
+        </Flex>
+
+        <Box display={['block', 'none']}>
+          <Text mb="4">{desc}</Text>
+        </Box>
+
+        {/* desktop header */}
+        <Flex display={['none', 'flex']}>
           <Flex pr="4" pt="0.5" align="flex-start" mt={itemZero ? '0' : '1'}>
             <Radio size="lg" colorScheme="cyan" value={value} />
           </Flex>
@@ -41,19 +77,14 @@ const ProductItem = ({
               mb="3"
               align={['flex-start', 'center']}
             >
-              <Heading
-                as="h3"
-                fontSize="md"
-                _groupChecked={{ backgroundColor: 'red' }}
-                mr={['0', '4']}
-                mb={['1', '0']}
-              >
+              <Heading as="h3" fontSize="md" mr={['0', '4']} mb={['1', '0']}>
                 {title}
               </Heading>
 
               <Text
                 fontWeight="bold"
                 color="primary.modeCyan"
+                mr="2"
                 display={itemZero ? 'none' : 'inline'}
               >
                 Pledge ${minPledgeAmount} or more
@@ -109,6 +140,7 @@ const ProductItem = ({
           <Text fontSize="md">left</Text>
         </Flex>
       </Box>
+
       <Flex
         direction={{ base: 'column', sm: 'column' }}
         align="center"
