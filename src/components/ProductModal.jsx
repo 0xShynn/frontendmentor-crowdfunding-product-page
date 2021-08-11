@@ -44,6 +44,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 desc="Choose to support us with no reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
                 value="0"
                 selectedValue={value}
+                onClose={onClose}
               />
               <ProductItem
                 title="Bamboo Stand"
@@ -56,6 +57,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 availability="available"
                 value="1"
                 selectedValue={value}
+                onClose={onClose}
               />
               <ProductItem
                 title="Black Edition Stand"
