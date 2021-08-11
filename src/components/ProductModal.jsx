@@ -20,7 +20,7 @@ const ProductModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent m="6" maxW="540px">
+      <ModalContent m="6" maxW="730px">
         <ModalHeader as="h2" mt="4">
           Back this project
         </ModalHeader>
