@@ -157,7 +157,7 @@ const ProductItem = ({
             justify="flex-end"
           >
             <Button
-              variant="primary"
+              colorScheme="teal"
               size="md"
               onClick={onClose}
               w="28"
@@ -236,7 +236,7 @@ const ProductItem = ({
             </FormControl>
 
             <Button
-              variant="primary"
+              colorScheme="teal"
               w="28"
               size="md"
               py="6"
