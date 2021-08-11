@@ -20,14 +20,16 @@ const ProductModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent m="6" maxW="730px">
-        <ModalHeader as="h2" mt="4">
+      <ModalContent m="6" maxW="730px" bg="white">
+        <ModalHeader as="h2" mt="4" color="black">
           Back this project
         </ModalHeader>
         <ModalCloseButton
           onClick={() => {
             setValue(null);
           }}
+          color="black"
+          bg="gray.100"
         />
         <ModalBody>
           <Text mb="6">

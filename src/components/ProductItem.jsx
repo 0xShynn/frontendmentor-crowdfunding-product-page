@@ -11,6 +11,21 @@ import {
   Text,
 } from '@chakra-ui/react';
 
+const CustomRadio = ({ value }) => (
+  <Radio
+    size="lg"
+    value={value}
+    _checked={{
+      borderColor: 'gray.100',
+      borderWidth: '4px',
+      bg: 'primary.modeCyan',
+      outlineColor: 'red',
+    }}
+    borderColor="gray.200"
+    cursor="pointer"
+  />
+);
+
 const ProductItem = ({
   title,
   desc,
@@ -34,20 +49,16 @@ const ProductItem = ({
         {/* mobile header */}
         <Flex display={['flex', 'none']} align="center" mb="4">
           <Flex pr="4" align="flex-start">
-            <Radio
-              size="lg"
-              value={value}
-              _checked={{
-                borderColor: 'gray.100',
-                borderWidth: '4px',
-                bg: 'primary.modeCyan',
-                outlineColor: 'red',
-              }}
-              borderColor="gray.200"
-            />
+            <CustomRadio value={value} />
           </Flex>
           <Flex direction="column">
-            <Heading as="h3" fontSize="sm" mr={['0', '4']} mb={['1', '0']}>
+            <Heading
+              as="h3"
+              fontSize="sm"
+              mr={['0', '4']}
+              mb={['1', '0']}
+              color="black"
+            >
               {title}
             </Heading>
             <Text
@@ -68,7 +79,7 @@ const ProductItem = ({
         {/* desktop header */}
         <Flex display={['none', 'flex']}>
           <Flex pr="4" pt="0.5" align="flex-start" mt={itemZero ? '0' : '1'}>
-            <Radio size="lg" colorScheme="cyan" value={value} />
+            <CustomRadio value={value} />
           </Flex>
 
           <Box>
@@ -77,7 +88,13 @@ const ProductItem = ({
               mb="3"
               align={['flex-start', 'center']}
             >
-              <Heading as="h3" fontSize="md" mr={['0', '4']} mb={['1', '0']}>
+              <Heading
+                as="h3"
+                fontSize="md"
+                mr={['0', '4']}
+                mb={['1', '0']}
+                color="black"
+              >
                 {title}
               </Heading>
 
@@ -142,34 +159,45 @@ const ProductItem = ({
       </Box>
 
       <Flex
-        direction={{ base: 'column', sm: 'column' }}
+        direction={{ base: 'column', sm: 'row' }}
         align="center"
         p="6"
         borderTopWidth="1px"
+        borderTopColor="gray.300"
         display={value === selectedValue && value !== '0' ? 'flex' : 'none'}
       >
-        <Text mb="4">Enter your pledge</Text>
-        <Flex justify="space-between" w="full">
-          <InputGroup>
+        <Flex flex="1">
+          <Text mb={['4', '0']}>Enter your pledge</Text>
+        </Flex>
+        <Flex align="center">
+          <InputGroup w="max">
             <InputLeftElement
               pointerEvents="none"
               fontSize="sm"
+              p="6"
               fontWeight="bold"
-              color="gray.400"
+              color="gray.500"
               children="$"
             />
             <Input
               placeholder={minPledgeAmount}
+              bg="white"
+              size="lg"
               w="28"
               rounded="full"
               fontSize="sm"
               fontWeight="bold"
               inputMode="numeric"
               min={minPledgeAmount}
+              max="5"
+              color="black"
+              borderColor="gray.300"
+              borderWidth="1px"
+              focusBorderColor="primary.modeCyan"
+              _hover={{ borderColor: 'gray.500' }}
             />
           </InputGroup>
-
-          <Button variant="primary" size="md">
+          <Button variant="primary" size="md" ml="3">
             Continue
           </Button>
         </Flex>

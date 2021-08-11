@@ -23,6 +23,7 @@ const Header = () => {
       textAlign="left"
       bg="white"
       p="5"
+      color="black"
       display="block"
       w="full"
       onClick={isOpen ? onClose : onOpen}
@@ -61,7 +62,13 @@ const Header = () => {
           colorScheme="whiteAlpha"
           aria-label="Open Menu"
           display={{ md: 'none' }}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={
+            isOpen ? (
+              <CloseIcon color="white" />
+            ) : (
+              <HamburgerIcon color="white" />
+            )
+          }
           onClick={isOpen ? onClose : onOpen}
           zIndex="overlay"
         />
@@ -91,7 +98,7 @@ const Header = () => {
               rounded="xl"
               h="fit-content"
               mx="6"
-              divider={<StackDivider borderColor="gray.00" />}
+              divider={<StackDivider borderColor="gray.200" />}
               shadow="2xl"
             >
               {NavLinks.map((link, index) => (

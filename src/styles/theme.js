@@ -77,6 +77,11 @@ const customTheme = extendTheme({
         },
       },
     },
+    Heading: {
+      baseStyle: {
+        color: 'black',
+      },
+    },
     Text: {
       baseStyle: {
         lineHeight: 'tall',

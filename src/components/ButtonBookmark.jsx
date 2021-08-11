@@ -1,4 +1,4 @@
-import { Box, Button, Image, Link, Text } from '@chakra-ui/react';
+import { Button, Image, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import iconBookmark from '../assets/svg/icon-bookmark.svg';
 
@@ -19,6 +19,7 @@ const ButtonBookmark = () => {
       <Button
         _hover={{ opacity: 0.7 }}
         roundedLeft="full"
+        bg="gray.200"
         px="0"
         size="lg"
         display={['none', 'flex']}
@@ -26,7 +27,6 @@ const ButtonBookmark = () => {
         aria-label="Bookmark this project"
       >
         <Image src={iconBookmark} w="53px" aria-label="Bookmark icon" />
-
         <Text display={{ base: 'none', sm: 'flex' }} ml="3" mr="6">
           Bookmark
         </Text>
