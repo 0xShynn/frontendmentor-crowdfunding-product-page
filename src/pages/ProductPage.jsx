@@ -57,6 +57,7 @@ const ProductPage = () => {
               <Flex direction="row" justify="space-between">
                 <Button
                   variant="primary"
+                  size="lg"
                   href="#"
                   onClick={isOpen ? onClose : onOpen}
                 >

@@ -52,13 +52,25 @@ const customTheme = extendTheme({
       baseStyle: {
         rounded: 'full',
       },
+      sizes: {
+        sm: {
+          fontSize: 'xs',
+        },
+        md: {
+          px: { base: 6, md: 8 },
+          py: { base: '20px', md: '22px' },
+          fontSize: { base: 'sm', md: 'md' },
+        },
+        lg: {
+          px: { base: 8, md: 10 },
+          py: { base: '26px', md: '28px' },
+          fontSize: { base: 'sm', md: 'md' },
+        },
+      },
       variants: {
         primary: {
           bg: 'primary.modeCyan',
           textColor: 'white',
-          fontSize: { base: 'sm', md: 'md' },
-          px: { base: 8, md: 10 },
-          py: { base: '26px', md: '28px' },
           _hover: {
             bg: 'primary.darkCyan',
           },

@@ -19,16 +19,15 @@ const ButtonBookmark = () => {
       <Button
         _hover={{ opacity: 0.7 }}
         roundedLeft="full"
-        paddingLeft="0"
-        py={{ base: '26px', md: '28px' }}
+        px="0"
+        size="lg"
         display={['none', 'flex']}
         href="#"
         aria-label="Bookmark this project"
       >
-        <Box roundedLeft="full">
-          <Image src={iconBookmark} w="53px" aria-label="Bookmark icon" />
-        </Box>
-        <Text display={{ base: 'none', sm: 'flex' }} ml="3" mr="2">
+        <Image src={iconBookmark} w="53px" aria-label="Bookmark icon" />
+
+        <Text display={{ base: 'none', sm: 'flex' }} ml="3" mr="6">
           Bookmark
         </Text>
       </Button>
