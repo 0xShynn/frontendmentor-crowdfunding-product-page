@@ -1,8 +1,16 @@
-import { Flex, Heading, Stack, StackDivider, Text } from '@chakra-ui/react';
-import React from 'react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Stack,
+  StackDivider,
+  Text,
+} from '@chakra-ui/react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectBackers } from '../../features/backers/backersSlice';
 import { selectFunds } from '../../features/funds/fundsSlice';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 const ProductStatItem = ({ title, desc }) => {
   return (
@@ -17,6 +25,10 @@ const ProductStats = () => {
   const totalBackers = useSelector(selectBackers);
   const totalFunds = useSelector(selectFunds);
 
+  useEffect(() => {
+    console.log('hello');
+  }, []);
+
   return (
     <>
       <Stack
@@ -30,6 +42,15 @@ const ProductStats = () => {
         <ProductStatItem title={totalBackers} desc="total backers" />
         <ProductStatItem title="56" desc="days left" />
       </Stack>
+      <Box py="4">
+        <ProgressBar
+          completed={10}
+          height="10px"
+          bgColor="hsl(176, 50%, 47%)"
+          baseBgColor="#F4F4F4"
+          isLabelVisible={false}
+        />
+      </Box>
     </>
   );
 };
