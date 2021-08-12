@@ -8,12 +8,12 @@ export const backersSlice = createSlice({
   name: 'backers',
   initialState,
   reducers: {
-    increment: (state) => {
+    addNewBacker: (state) => {
       state.value += 1;
     },
   },
 });
 
-export const { increment } = backersSlice.actions;
+export const { addNewBacker } = backersSlice.actions;
 export const selectBackers = (state) => state.backers.value;
 export default backersSlice.reducer;

@@ -15,4 +15,5 @@ export const fundsSlice = createSlice({
 });
 
 export const { addFunds } = fundsSlice.actions;
+export const selectFunds = (state) => state.funds.value;
 export default fundsSlice.reducer;

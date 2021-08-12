@@ -12,6 +12,9 @@ import {
   FormControl,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { addNewBacker } from '../features/backers/backersSlice';
+import { addFunds } from '../features/funds/fundsSlice';
 
 const CustomRadio = ({ value }) => (
   <Radio
@@ -46,10 +49,13 @@ const ProductItem = ({
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const dispatch = useDispatch();
+
   function onSubmit(values) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log(values);
+        dispatch(addNewBacker());
+        dispatch(addFunds(+values.pledge));
         onClose();
         resolve();
         thankYouModalOnOpen();
