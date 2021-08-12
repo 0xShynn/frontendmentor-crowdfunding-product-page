@@ -13,9 +13,12 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import ProductItem from './ProductItem';
+import { useSelector } from 'react-redux';
+import { selectProducts } from '../features/products/productsSlice';
 
 const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
   const [value, setValue] = useState(null);
+  const products = useSelector(selectProducts);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -39,52 +42,21 @@ const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
 
           <RadioGroup onChange={setValue} value={value}>
             <Stack spacing="4">
-              <ProductItem
-                title="Pledge with no reward"
-                desc="Choose to support us with no reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
-                value="0"
-                selectedValue={value}
-                onClose={onClose}
-                thankYouModalOnOpen={thankYouModalOnOpen}
-              />
-              <ProductItem
-                title="Bamboo Stand"
-                desc="You get a Black Special Edition computer stand and a personal
-                  thank you. You'll be added to our Backer member list. Shipping
-                  is included."
-                minPledgeAmount={25}
-                ticketsTotal={2000}
-                ticketsLeft={1930}
-                availability="available"
-                value="1"
-                selectedValue={value}
-                onClose={onClose}
-                thankYouModalOnOpen={thankYouModalOnOpen}
-              />
-              <ProductItem
-                title="Black Edition Stand"
-                desc="You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included."
-                minPledgeAmount={75}
-                ticketsTotal={400}
-                ticketsLeft={378}
-                availability="available"
-                value="2"
-                selectedValue={value}
-                onClose={onClose}
-                thankYouModalOnOpen={thankYouModalOnOpen}
-              />
-              <ProductItem
-                title="Mahogany Special Edition"
-                desc="You get two Special Edition Mahogany stands, a Backer T-shirt and a personal thank you. You'll be added to our Backer member list. Shipping is included."
-                minPledgeAmount={200}
-                ticketsTotal={100}
-                ticketsLeft={94}
-                availability="available"
-                value="3"
-                selectedValue={value}
-                onClose={onClose}
-                thankYouModalOnOpen={thankYouModalOnOpen}
-              />
+              {products.products.map((product) => {
+                return (
+                  <ProductItem
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    desc={product.desc}
+                    minPledgeAmount={product.minPledgeAmount}
+                    quantity={product.quantity}
+                    selectedId={value}
+                    onClose={onClose}
+                    thankYouModalOnOpen={thankYouModalOnOpen}
+                  />
+                );
+              })}
             </Stack>
           </RadioGroup>
         </ModalBody>

@@ -6,7 +6,7 @@ import {
   StackDivider,
   Text,
 } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectBackers } from '../../features/backers/backersSlice';
 import { selectFunds } from '../../features/funds/fundsSlice';
@@ -24,10 +24,8 @@ const ProductStatItem = ({ title, desc }) => {
 const ProductStats = () => {
   const totalBackers = useSelector(selectBackers);
   const totalFunds = useSelector(selectFunds);
-
-  useEffect(() => {
-    console.log('hello');
-  }, []);
+  const crowdFundingGoal = useSelector((state) => state.funds.goal);
+  const fundsProgression = (totalFunds * 100) / crowdFundingGoal;
 
   return (
     <>
@@ -44,7 +42,7 @@ const ProductStats = () => {
       </Stack>
       <Box py="4">
         <ProgressBar
-          completed={10}
+          completed={fundsProgression}
           height="10px"
           bgColor="hsl(176, 50%, 47%)"
           baseBgColor="#F4F4F4"

@@ -15,33 +15,21 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addNewBacker } from '../features/backers/backersSlice';
 import { addFunds } from '../features/funds/fundsSlice';
-
-const CustomRadio = ({ value }) => (
-  <Radio
-    size="lg"
-    value={value}
-    _checked={{
-      borderColor: 'gray.100',
-      borderWidth: '4px',
-      bg: 'primary.modeCyan',
-      outlineColor: 'red',
-    }}
-    borderColor="gray.200"
-    cursor="pointer"
-  />
-);
+import { addOrder } from '../features/products/productsSlice';
 
 const ProductItem = ({
   title,
   desc,
   minPledgeAmount,
-  ticketsLeft,
-  value,
-  selectedValue,
+  quantity,
+  id,
+  selectedId,
   onClose,
   thankYouModalOnOpen,
 }) => {
-  const itemZero = value === '0';
+  const dispatch = useDispatch();
+
+  const itemZero = id === '0';
 
   const {
     handleSubmit,
@@ -49,19 +37,34 @@ const ProductItem = ({
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const dispatch = useDispatch();
-
   function onSubmit(values) {
     return new Promise((resolve) => {
       setTimeout(() => {
         dispatch(addNewBacker());
         dispatch(addFunds(+values.pledge));
+        dispatch(addOrder(selectedId, 1));
         onClose();
         resolve();
         thankYouModalOnOpen();
-      }, 3000);
+      }, 1000);
     });
   }
+
+  const CustomRadio = ({ value }) => (
+    <Radio
+      size="lg"
+      value={value}
+      _checked={{
+        borderColor: 'gray.100',
+        borderWidth: '4px',
+        bg: 'primary.modeCyan',
+        outlineColor: 'red',
+      }}
+      borderColor="gray.200"
+      cursor="pointer"
+      isDisabled={quantity === 0 ? true : false}
+    />
+  );
 
   return (
     <Container
@@ -70,14 +73,14 @@ const ProductItem = ({
       mb="0"
       mx="0"
       p="0"
-      borderColor={value === selectedValue ? 'primary.modeCyan' : 'gray.100'}
+      borderColor={id === selectedId ? 'primary.modeCyan' : 'gray.100'}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box p="6">
           {/* mobile header */}
           <Flex display={['flex', 'none']} align="center" mb="4">
             <Flex pr="4" align="flex-start">
-              <CustomRadio value={value} />
+              <CustomRadio value={id} />
             </Flex>
             <Flex direction="column">
               <Heading
@@ -107,7 +110,7 @@ const ProductItem = ({
           {/* desktop header */}
           <Flex display={['none', 'flex']}>
             <Flex pr="4" pt="0.5" align="flex-start" mt={itemZero ? '0' : '1'}>
-              <CustomRadio value={value} />
+              <CustomRadio value={id} />
             </Flex>
 
             <Box>
@@ -151,7 +154,7 @@ const ProductItem = ({
                     fontSize="lg"
                     mr="2"
                   >
-                    {ticketsLeft}
+                    {quantity}
                   </Text>
                   <Text fontSize="md">left</Text>
                 </Flex>
@@ -161,18 +164,22 @@ const ProductItem = ({
           </Flex>
 
           <Flex
-            display={selectedValue === value && itemZero ? 'flex' : 'none'}
+            display={selectedId === id && itemZero ? 'flex' : 'none'}
             justify="flex-end"
           >
             <Button
               colorScheme="teal"
               size="md"
-              onClick={onClose}
+              onClick={() => {
+                dispatch(addNewBacker());
+                onClose();
+                thankYouModalOnOpen();
+              }}
               w="28"
               py="6"
               px="12"
             >
-              Continue
+              {itemZero ? 'Continue' : 'Select Reward'}
             </Button>
           </Flex>
 
@@ -187,7 +194,7 @@ const ProductItem = ({
               fontSize="lg"
               mr="2"
             >
-              {ticketsLeft}
+              {quantity}
             </Text>
             <Text fontSize="md">left</Text>
           </Flex>
@@ -199,7 +206,7 @@ const ProductItem = ({
           p="6"
           borderTopWidth="1px"
           borderTopColor="gray.300"
-          display={value === selectedValue && value !== '0' ? 'flex' : 'none'}
+          display={id === selectedId && id !== '0' ? 'flex' : 'none'}
         >
           <Flex flex="1">
             <Text mb={['4', '0']}>Enter your pledge</Text>
@@ -245,15 +252,14 @@ const ProductItem = ({
 
             <Button
               colorScheme="teal"
-              w="28"
               size="md"
               py="6"
-              px="12"
+              px="8"
               ml="3"
               isLoading={isSubmitting}
               type="submit"
             >
-              Continue
+              Select Reward
             </Button>
           </Flex>
         </Flex>
