@@ -16,12 +16,23 @@ import ProductModal from '../components/ProductModal';
 import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
 import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
+import ThankYouModal from '../components/ThankYouModal';
 
 const ProductPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const {
+    isOpen: thankYouIsOpen,
+    onOpen: thankYouOnOpen,
+    onClose: thankYouOnClose,
+  } = useDisclosure();
+
   return (
     <Box>
-      <ProductModal isOpen={isOpen} onClose={onClose} />
+      <ProductModal
+        isOpen={isOpen}
+        onClose={onClose}
+        thankYouOnOpen={thankYouOnOpen}
+      />
       <Box
         bgImage={{ base: imageHeroMobile, md: imageHeroDesktop }}
         h="400px"
@@ -68,6 +79,12 @@ const ProductPage = () => {
             </Container>
 
             <Container>
+              <ThankYouModal
+                isOpen={thankYouIsOpen}
+                onClose={thankYouOnClose}
+                onOpen={thankYouOnOpen}
+              />
+
               <Heading as="h3" fontSize="lg" mb="6" mt="4">
                 About this project
               </Heading>

@@ -14,13 +14,13 @@ import {
 import { useState } from 'react';
 import ProductItem from './ProductItem';
 
-const ProductModal = ({ isOpen, onClose }) => {
+const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
   const [value, setValue] = useState(null);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent m="6" maxW="730px" bg="white">
+      <ModalContent m="6" maxW="730px" bg="white" shadow="xl">
         <ModalHeader as="h2" mt="4" color="black">
           Back this project
         </ModalHeader>
@@ -45,6 +45,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 value="0"
                 selectedValue={value}
                 onClose={onClose}
+                thankYouOnOpen={thankYouOnOpen}
               />
               <ProductItem
                 title="Bamboo Stand"
@@ -58,6 +59,7 @@ const ProductModal = ({ isOpen, onClose }) => {
                 value="1"
                 selectedValue={value}
                 onClose={onClose}
+                thankYouOnOpen={thankYouOnOpen}
               />
               <ProductItem
                 title="Black Edition Stand"
@@ -68,6 +70,8 @@ const ProductModal = ({ isOpen, onClose }) => {
                 availability="available"
                 value="2"
                 selectedValue={value}
+                onClose={onClose}
+                thankYouOnOpen={thankYouOnOpen}
               />
               <ProductItem
                 title="Mahogany Special Edition"
@@ -78,6 +82,8 @@ const ProductModal = ({ isOpen, onClose }) => {
                 availability="available"
                 value="3"
                 selectedValue={value}
+                onClose={onClose}
+                thankYouOnOpen={thankYouOnOpen}
               />
             </Stack>
           </RadioGroup>
