@@ -36,7 +36,7 @@ const ProductItem = ({
   value,
   selectedValue,
   onClose,
-  thankYouOnOpen,
+  thankYouModalOnOpen,
 }) => {
   const itemZero = value === '0';
 
@@ -52,7 +52,7 @@ const ProductItem = ({
         console.log(values);
         onClose();
         resolve();
-        thankYouOnOpen();
+        thankYouModalOnOpen();
       }, 3000);
     });
   }

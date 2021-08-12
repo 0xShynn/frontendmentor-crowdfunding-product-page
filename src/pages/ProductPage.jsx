@@ -19,20 +19,30 @@ import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
 import ThankYouModal from '../components/ThankYouModal';
 
 const ProductPage = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
   const {
-    isOpen: thankYouIsOpen,
-    onOpen: thankYouOnOpen,
-    onClose: thankYouOnClose,
+    isOpen: productModalIsOpen,
+    onClose: productModalOnClose,
+    onOpen: productModalOnOpen,
+  } = useDisclosure();
+  const {
+    isOpen: thankYouModalIsOpen,
+    onOpen: thankYouModalOnOpen,
+    onClose: thankYouModalOnClose,
   } = useDisclosure();
 
   return (
     <Box>
-      <ProductModal
-        isOpen={isOpen}
-        onClose={onClose}
-        thankYouOnOpen={thankYouOnOpen}
+      <ThankYouModal
+        isOpen={thankYouModalIsOpen}
+        onClose={thankYouModalOnClose}
+        onOpen={thankYouModalOnOpen}
       />
+      <ProductModal
+        isOpen={productModalIsOpen}
+        onClose={productModalOnClose}
+        thankYouModalOnOpen={thankYouModalOnOpen}
+      />
+
       <Box
         bgImage={{ base: imageHeroMobile, md: imageHeroDesktop }}
         h="400px"
@@ -69,8 +79,11 @@ const ProductPage = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  href="#"
-                  onClick={isOpen ? onClose : onOpen}
+                  onClick={
+                    productModalIsOpen
+                      ? productModalOnClose
+                      : productModalOnOpen
+                  }
                 >
                   Back this project
                 </Button>
@@ -79,12 +92,6 @@ const ProductPage = () => {
             </Container>
 
             <Container>
-              <ThankYouModal
-                isOpen={thankYouIsOpen}
-                onClose={thankYouOnClose}
-                onOpen={thankYouOnOpen}
-              />
-
               <Heading as="h3" fontSize="lg" mb="6" mt="4">
                 About this project
               </Heading>

@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import ProductItem from './ProductItem';
 
-const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
+const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
   const [value, setValue] = useState(null);
 
   return (
@@ -45,7 +45,7 @@ const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
                 value="0"
                 selectedValue={value}
                 onClose={onClose}
-                thankYouOnOpen={thankYouOnOpen}
+                thankYouModalOnOpen={thankYouModalOnOpen}
               />
               <ProductItem
                 title="Bamboo Stand"
@@ -59,7 +59,7 @@ const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
                 value="1"
                 selectedValue={value}
                 onClose={onClose}
-                thankYouOnOpen={thankYouOnOpen}
+                thankYouModalOnOpen={thankYouModalOnOpen}
               />
               <ProductItem
                 title="Black Edition Stand"
@@ -71,7 +71,7 @@ const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
                 value="2"
                 selectedValue={value}
                 onClose={onClose}
-                thankYouOnOpen={thankYouOnOpen}
+                thankYouModalOnOpen={thankYouModalOnOpen}
               />
               <ProductItem
                 title="Mahogany Special Edition"
@@ -83,7 +83,7 @@ const ProductModal = ({ isOpen, onClose, thankYouOnOpen }) => {
                 value="3"
                 selectedValue={value}
                 onClose={onClose}
-                thankYouOnOpen={thankYouOnOpen}
+                thankYouModalOnOpen={thankYouModalOnOpen}
               />
             </Stack>
           </RadioGroup>
