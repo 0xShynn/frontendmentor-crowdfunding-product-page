@@ -5,12 +5,13 @@ const initialState = {
     {
       id: '0',
       title: 'Pledge with no reward',
-      desc: "You get an ergonomic stand mode of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.",
+      desc: 'Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.',
+      quantity: 100000000000000000,
     },
     {
       id: '1',
       title: 'Bamboo Stand',
-      desc: "You get an ergonomic stand mode of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.",
+      desc: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.",
       quantity: 2000,
       minPledgeAmount: 25,
       status: 'available',
@@ -41,7 +42,7 @@ export const productsSlice = createSlice({
     addOrder: {
       reducer(state, action) {
         const selectedId = state.products[action.payload.id];
-        if (selectedId.quantity >= 0) {
+        if (selectedId.quantity > 0) {
           selectedId.quantity -= action.payload.quantity;
         }
       },

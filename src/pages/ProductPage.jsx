@@ -19,6 +19,7 @@ import ProductStats from '../components/productStats/ProductStats';
 import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
 import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
+import ProductStack from '../components/ProductStack';
 
 const ProductPage = () => {
   const {
@@ -52,7 +53,13 @@ const ProductPage = () => {
         bgRepeat="no-repeat"
         bgSize={{ base: 'contain', sm: 'cover' }}
       >
-        <Flex maxW="1120px" justify="center" direction="column" mx="auto">
+        <Flex
+          maxW="1120px"
+          justify="center"
+          direction="column"
+          mx="auto"
+          pb={['10', '18', '24']}
+        >
           <Header />
           <Flex justify="center" direction="column" mx="6">
             <Container mt="20" pos="relative" textAlign="center" pb="10">
@@ -101,7 +108,7 @@ const ProductPage = () => {
               <Heading as="h3" fontSize="lg" mb="6" mt="4">
                 About this project
               </Heading>
-              <Text mb="6">
+              <Text mb="10">
                 The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
                 platform that elevates your screen to a more comfortable viewing
                 height. Placing your monitor at eye level has the potential to
@@ -112,6 +119,8 @@ const ProductPage = () => {
                 extra desk space below your computer to allow notepads, pens and
                 USB sticks to be stored under the stand.
               </Text>
+
+              <ProductStack />
             </Container>
           </Flex>
         </Flex>

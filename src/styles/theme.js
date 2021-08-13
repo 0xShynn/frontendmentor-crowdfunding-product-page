@@ -33,7 +33,7 @@ const customTheme = extendTheme({
   components: {
     Container: {
       baseStyle: {
-        p: '6',
+        p: { base: '6', md: '10' },
         bg: 'white',
         rounded: 'lg',
         mb: '6',

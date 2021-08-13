@@ -41,16 +41,18 @@ const ProductItem = ({
   } = useForm();
 
   function onSubmit(values) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch(addNewBacker());
-        dispatch(addFunds(+values.pledge));
-        dispatch(addOrder(selectedId, 1));
-        onClose();
-        resolve();
-        thankYouModalOnOpen();
-      }, 1000);
-    });
+    if (quantity > 0) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          dispatch(addNewBacker());
+          dispatch(addFunds(+values.pledge));
+          dispatch(addOrder(selectedId, 1));
+          onClose();
+          resolve();
+          thankYouModalOnOpen();
+        }, 1000);
+      });
+    }
   }
 
   const handleSelectTitle = useCallback(() => {
@@ -79,14 +81,17 @@ const ProductItem = ({
       borderWidth="2px"
       m="0"
       p="0"
-      borderColor={id === selectedId ? 'primary.modeCyan' : 'gray.100'}
+      borderColor={
+        id === selectedId && quantity > 0 ? 'primary.modeCyan' : 'gray.100'
+      }
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box
           p="6"
-          opacity={quantity === 0 ? '0.5' : '1'}
+          // opacity={quantity === 0 ? '0.5' : '1'}
+          opacity={quantity > 0 ? '1' : '0.5'}
           onClick={handleSelectTitle}
-          cursor="pointer"
+          cursor={quantity > 0 || itemZero ? 'pointer' : 'not-allowed'}
         >
           {/* mobile header */}
           <Flex display={['flex', 'none']} align="center" mb="4">
@@ -135,9 +140,14 @@ const ProductItem = ({
                   mr={['0', '4']}
                   mb={['1', '0']}
                   color="black"
-                  _hover={{
-                    color: 'primary.modeCyan',
-                  }}
+                  // _hover={{
+                  //   color: 'primary.modeCyan',
+                  // }}
+                  _hover={
+                    quantity > 0
+                      ? { color: 'primary.modeCyan' }
+                      : { color: 'black' }
+                  }
                 >
                   {title}
                 </Link>
@@ -209,68 +219,70 @@ const ProductItem = ({
           </Flex>
         </Box>
 
-        <Flex
-          direction={{ base: 'column', sm: 'row' }}
-          align="center"
-          p="6"
-          borderTopWidth="1px"
-          borderTopColor="gray.300"
-          display={id === selectedId && id !== '0' ? 'flex' : 'none'}
-        >
-          <Flex flex="1">
-            <Text mb={['4', '0']}>Enter your pledge</Text>
-          </Flex>
-          <Flex align="center">
-            <FormControl isInvalid={errors.pledge} w="fit-content">
-              <InputGroup w="max">
-                <InputLeftElement
-                  pointerEvents="none"
-                  fontSize="sm"
-                  p="6"
-                  fontWeight="bold"
-                  color="gray.500"
-                  children="$"
-                />
-                <Input
-                  id="pledge"
-                  placeholder={minPledgeAmount}
-                  bg="white"
-                  size="lg"
-                  w="28"
-                  rounded="full"
-                  fontSize="sm"
-                  fontWeight="bold"
-                  inputMode="numeric"
-                  min={minPledgeAmount}
-                  color="black"
-                  borderColor="gray.300"
-                  borderWidth="1px"
-                  focusBorderColor="primary.modeCyan"
-                  type="number"
-                  _hover={{ borderColor: 'gray.500' }}
-                  {...register('pledge', {
-                    required: `Pledge an amount greater than $${minPledgeAmount}`,
-                    min: minPledgeAmount,
-                  })}
-                />
-              </InputGroup>
-              {/* <FormErrorMessage rounded="md" fontWeight="bold">
+        {quantity > 0 ? (
+          <Flex
+            direction={{ base: 'column', sm: 'row' }}
+            align="center"
+            p="6"
+            borderTopWidth="1px"
+            borderTopColor="gray.300"
+            display={id === selectedId && id !== '0' ? 'flex' : 'none'}
+          >
+            <Flex flex="1">
+              <Text mb={['4', '0']}>Enter your pledge</Text>
+            </Flex>
+            <Flex align="center">
+              <FormControl isInvalid={errors.pledge} w="fit-content">
+                <InputGroup w="max">
+                  <InputLeftElement
+                    pointerEvents="none"
+                    fontSize="sm"
+                    p="6"
+                    fontWeight="bold"
+                    color="gray.500"
+                    children="$"
+                  />
+                  <Input
+                    id="pledge"
+                    placeholder={minPledgeAmount}
+                    bg="white"
+                    size="lg"
+                    w="28"
+                    rounded="full"
+                    fontSize="sm"
+                    fontWeight="bold"
+                    inputMode="numeric"
+                    min={minPledgeAmount}
+                    color="black"
+                    borderColor="gray.300"
+                    borderWidth="1px"
+                    focusBorderColor="primary.modeCyan"
+                    type="number"
+                    _hover={{ borderColor: 'gray.500' }}
+                    {...register('pledge', {
+                      required: `Pledge an amount greater than $${minPledgeAmount}`,
+                      min: minPledgeAmount,
+                    })}
+                  />
+                </InputGroup>
+                {/* <FormErrorMessage rounded="md" fontWeight="bold">
                 {errors.pledge && errors.pledge.message}
               </FormErrorMessage> */}
-            </FormControl>
+              </FormControl>
 
-            <Button
-              colorScheme="teal"
-              size="md"
-              py="6"
-              ml="3"
-              isLoading={isSubmitting}
-              type="submit"
-            >
-              Continue
-            </Button>
+              <Button
+                colorScheme="teal"
+                size="md"
+                py="6"
+                ml="3"
+                isLoading={isSubmitting}
+                type="submit"
+              >
+                Continue
+              </Button>
+            </Flex>
           </Flex>
-        </Flex>
+        ) : null}
       </form>
     </Container>
   );
