@@ -12,10 +12,12 @@ import { selectBackers } from '../../features/backers/backersSlice';
 import { selectFunds } from '../../features/funds/fundsSlice';
 import ProgressBar from '@ramonak/react-progress-bar';
 
-const ProductStatItem = ({ title, desc }) => {
+const ProductStatItem = ({ title, desc, ariaLabel }) => {
   return (
     <Flex flex="1" direction="column" textAlign={['center', 'left']}>
-      <Heading mb="1">{title}</Heading>
+      <Heading mb="1" as="h2" aria-label={ariaLabel}>
+        {title}
+      </Heading>
       <Text>{desc}</Text>
     </Flex>
   );
@@ -36,9 +38,21 @@ const ProductStats = () => {
         direction={['column', 'row']}
         mb="4"
       >
-        <ProductStatItem title={`$${totalFunds}`} desc="of $100.000 backed" />
-        <ProductStatItem title={totalBackers} desc="total backers" />
-        <ProductStatItem title="56" desc="days left" />
+        <ProductStatItem
+          title={`$${totalFunds}`}
+          desc="of $100.000 backed"
+          ariaLabel="Total funds collected"
+        />
+        <ProductStatItem
+          title={totalBackers}
+          desc="total backers"
+          ariaLabel="Total backers"
+        />
+        <ProductStatItem
+          title="56"
+          desc="days left"
+          ariaLabel="Project days countdown"
+        />
       </Stack>
       <Box py="4">
         <ProgressBar

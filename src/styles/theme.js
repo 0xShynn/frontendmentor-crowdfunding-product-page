@@ -81,6 +81,7 @@ const customTheme = extendTheme({
         },
       },
     },
+
     Heading: {
       baseStyle: {
         color: 'black',
@@ -90,7 +91,7 @@ const customTheme = extendTheme({
       baseStyle: {
         lineHeight: 'tall',
         fontSize: { base: 'sm', md: 'md' },
-        color: 'neutral.darkGray',
+        color: 'gray.600',
       },
     },
   },

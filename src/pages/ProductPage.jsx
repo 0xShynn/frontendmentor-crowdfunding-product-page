@@ -73,14 +73,15 @@ const ProductPage = () => {
                   alt="Mastercraft logo"
                 />
               </Flex>
-              <Heading fontSize={{ base: 'xl', md: '2xl' }} mb="4" px="4">
+              <Heading
+                fontSize={{ base: 'xl', md: '2xl' }}
+                mb="4"
+                px="4"
+                as="h1"
+              >
                 Mastercraft Bamboo Monitor Riser
               </Heading>
-              <Text
-                color="neutral.darkGray"
-                fontSize={['sm', 'md']}
-                mb={{ base: 6, md: 8 }}
-              >
+              <Text fontSize={['sm', 'md']} mb={{ base: 6, md: 8 }}>
                 A beautiful & handcrafted monitor stand to reduce neck and eye
                 strain.
               </Text>

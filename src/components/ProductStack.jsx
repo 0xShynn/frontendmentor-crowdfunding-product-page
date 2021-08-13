@@ -28,14 +28,14 @@ const ProductStackItem = ({ title, desc, quantity, minPledgeAmount, id }) => {
         <Heading as="h3" fontSize="lg">
           {title}
         </Heading>
-        <Text color="primary.modeCyan" fontSize="14px">
+        <Text color="primary.modeCyan" fontSize="14px" fontWeight="bold">
           Pledge ${minPledgeAmount} or more
         </Text>
       </Flex>
       <Text mb={['4', '10']}>{desc}</Text>
       <Flex justify="space-between" direction={['column', 'row']}>
         <Flex align="center" mb={{ base: '4', md: '0' }}>
-          <Text fontSize="3xl" fontWeight="bold" color="black" mr="2">
+          <Text fontSize="3xl" fontWeight="bold" color="black" mr="2" pb="1">
             {quantity}
           </Text>
           <Text color="gray.500">left</Text>
