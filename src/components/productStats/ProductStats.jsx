@@ -18,7 +18,7 @@ const ProductStatItem = ({ title, desc, ariaLabel }) => {
       <Heading mb="1" as="h2" aria-label={ariaLabel}>
         {title}
       </Heading>
-      <Text>{desc}</Text>
+      <Text color="gray.500">{desc}</Text>
     </Flex>
   );
 };
