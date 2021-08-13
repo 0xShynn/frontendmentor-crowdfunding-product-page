@@ -39,7 +39,7 @@ const customTheme = extendTheme({
         mb: '6',
         maxW: { md: '640px', lg: '730px' },
         border: '1px',
-        borderColor: 'gray.100',
+        borderColor: 'gray.200',
       },
       variants: {
         content: {
