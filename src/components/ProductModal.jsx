@@ -20,6 +20,10 @@ const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
   const [value, setValue] = useState(null);
   const products = useSelector(selectProducts);
 
+  function handleRadioValue(value) {
+    setValue(value);
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -40,7 +44,7 @@ const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
             the world ?
           </Text>
 
-          <RadioGroup onChange={setValue} value={value}>
+          <RadioGroup onChange={handleRadioValue} value={value}>
             <Stack spacing="4">
               {products.products.map((product) => {
                 return (
@@ -54,6 +58,7 @@ const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
                     selectedId={value}
                     onClose={onClose}
                     thankYouModalOnOpen={thankYouModalOnOpen}
+                    onRadioValueChange={handleRadioValue}
                   />
                 );
               })}

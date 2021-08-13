@@ -11,6 +11,7 @@ import {
   Text,
   FormControl,
 } from '@chakra-ui/react';
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addNewBacker } from '../features/backers/backersSlice';
@@ -26,6 +27,7 @@ const ProductItem = ({
   selectedId,
   onClose,
   thankYouModalOnOpen,
+  onRadioValueChange,
 }) => {
   const dispatch = useDispatch();
 
@@ -49,6 +51,10 @@ const ProductItem = ({
       }, 1000);
     });
   }
+
+  const handleSelectTitle = useCallback(() => {
+    onRadioValueChange(id);
+  }, [id, onRadioValueChange]);
 
   const CustomRadio = ({ value }) => (
     <Radio
@@ -76,7 +82,12 @@ const ProductItem = ({
       borderColor={id === selectedId ? 'primary.modeCyan' : 'gray.100'}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box p="6" opacity={quantity === 0 ? '0.5' : '1'}>
+        <Box
+          p="6"
+          opacity={quantity === 0 ? '0.5' : '1'}
+          onClick={handleSelectTitle}
+          cursor="pointer"
+        >
           {/* mobile header */}
           <Flex display={['flex', 'none']} align="center" mb="4">
             <Flex pr="4" align="flex-start">
