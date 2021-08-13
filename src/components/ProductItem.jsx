@@ -76,7 +76,7 @@ const ProductItem = ({
       borderColor={id === selectedId ? 'primary.modeCyan' : 'gray.100'}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box p="6">
+        <Box p="6" opacity={quantity === 0 ? '0.5' : '1'}>
           {/* mobile header */}
           <Flex display={['flex', 'none']} align="center" mb="4">
             <Flex pr="4" align="flex-start">
@@ -102,11 +102,9 @@ const ProductItem = ({
               </Text>
             </Flex>
           </Flex>
-
           <Box display={['block', 'none']}>
             <Text mb="4">{desc}</Text>
           </Box>
-
           {/* desktop header */}
           <Flex display={['none', 'flex']}>
             <Flex pr="4" pt="0.5" align="flex-start" mt={itemZero ? '0' : '1'}>
@@ -182,7 +180,6 @@ const ProductItem = ({
               {itemZero ? 'Continue' : 'Select Reward'}
             </Button>
           </Flex>
-
           <Flex
             align="center"
             display={{ base: itemZero ? 'none' : 'flex', sm: 'none' }}

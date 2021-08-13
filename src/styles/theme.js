@@ -75,6 +75,10 @@ const customTheme = extendTheme({
             bg: 'primary.darkCyan',
           },
         },
+        disabled: {
+          bg: 'gray.500',
+          color: 'white',
+        },
       },
     },
     Heading: {
