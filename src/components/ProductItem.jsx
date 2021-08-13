@@ -10,6 +10,7 @@ import {
   Radio,
   Text,
   FormControl,
+  Link,
 } from '@chakra-ui/react';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
@@ -76,8 +77,7 @@ const ProductItem = ({
     <Container
       rounded="lg"
       borderWidth="2px"
-      mb="0"
-      mx="0"
+      m="0"
       p="0"
       borderColor={id === selectedId ? 'primary.modeCyan' : 'gray.100'}
     >
@@ -128,15 +128,19 @@ const ProductItem = ({
                 mb="3"
                 align={['flex-start', 'center']}
               >
-                <Heading
+                <Link
                   as="h3"
                   fontSize="md"
+                  fontWeight="bold"
                   mr={['0', '4']}
                   mb={['1', '0']}
                   color="black"
+                  _hover={{
+                    color: 'primary.modeCyan',
+                  }}
                 >
                   {title}
-                </Heading>
+                </Link>
 
                 <Text
                   fontWeight="bold"
@@ -184,11 +188,8 @@ const ProductItem = ({
                 onClose();
                 thankYouModalOnOpen();
               }}
-              w="28"
-              py="6"
-              px="12"
             >
-              {itemZero ? 'Continue' : 'Select Reward'}
+              Continue
             </Button>
           </Flex>
           <Flex
@@ -262,12 +263,11 @@ const ProductItem = ({
               colorScheme="teal"
               size="md"
               py="6"
-              px="8"
               ml="3"
               isLoading={isSubmitting}
               type="submit"
             >
-              Select Reward
+              Continue
             </Button>
           </Flex>
         </Flex>

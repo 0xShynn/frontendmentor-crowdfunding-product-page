@@ -27,7 +27,13 @@ const ProductModal = ({ isOpen, onClose, thankYouModalOnOpen }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent m="6" maxW="730px" bg="white" shadow="xl">
+      <ModalContent
+        m="6"
+        maxW={{ base: '640px', lg: '730px' }}
+        bg="white"
+        shadow="xl"
+        top={['16', '20']}
+      >
         <ModalHeader as="h2" mt="4" color="black">
           Back this project
         </ModalHeader>
