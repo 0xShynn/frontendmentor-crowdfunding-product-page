@@ -9,15 +9,16 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+
 import Header from '../components/Header';
 import ButtonBookmark from '../components/ButtonBookmark';
 import ProductModal from '../components/ProductModal';
+import ThankYouModal from '../components/ThankYouModal';
+import ProductStats from '../components/productStats/ProductStats';
 
 import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
 import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
-import ThankYouModal from '../components/ThankYouModal';
-import ProductStats from '../components/productStats/ProductStats';
 
 const ProductPage = () => {
   const {

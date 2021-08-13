@@ -1,20 +1,24 @@
-import { Button, Image, Link, Text } from '@chakra-ui/react';
-import React from 'react';
-import iconBookmark from '../assets/svg/icon-bookmark.svg';
+import { Button, Flex, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import IconBookmark from '../assets/svg/IconBookmark';
 
 const ButtonBookmark = () => {
+  const [bookmarked, setBookmarked] = useState(false);
   return (
     <>
-      <Link
+      <Flex
         display={['flex', 'none']}
         href="#"
         ml="2"
-        _hover={{ opacity: 0.7 }}
         rounded="full"
         aria-label="Bookmark this project"
       >
-        <Image src={iconBookmark} w="53px" />
-      </Link>
+        <IconBookmark
+          size="58"
+          bgcolor={bookmarked ? 'hsl(176, 50%, 47%)' : 'black'}
+          color={bookmarked ? 'white' : '#B1B1B1'}
+        />
+      </Flex>
 
       <Button
         _hover={{ opacity: 0.7 }}
@@ -25,10 +29,22 @@ const ButtonBookmark = () => {
         display={['none', 'flex']}
         href="#"
         aria-label="Bookmark this project"
+        onClick={() => {
+          setBookmarked(!bookmarked);
+        }}
       >
-        <Image src={iconBookmark} w="53px" aria-label="Bookmark icon" />
-        <Text display={{ base: 'none', sm: 'flex' }} ml="3" mr="6">
-          Bookmark
+        <IconBookmark
+          size="58"
+          bgcolor={bookmarked ? 'hsl(176, 50%, 47%)' : 'black'}
+          color={bookmarked ? 'white' : '#B1B1B1'}
+        />
+        <Text
+          display={{ base: 'none', sm: 'flex' }}
+          ml="3"
+          mr="6"
+          color={bookmarked ? 'primary.modeCyan' : 'gray.500'}
+        >
+          {bookmarked ? 'Bookmarked' : 'Bookmark'}
         </Text>
       </Button>
     </>
