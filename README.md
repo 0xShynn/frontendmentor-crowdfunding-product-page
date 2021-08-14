@@ -1,59 +1,61 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# Frontend Mentor - Crowdfunding product page solution
 
-## Available Scripts
+This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-In the project directory, you can run:
+## Table of contents
 
-### `yarn start`
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+### The challenge
 
-### `yarn test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+- View the optimal layout depending on their device's screen size
+- See hover states for interactive elements
+- Make a selection of which pledge to make
+- See an updated progress bar and total money raised based on their pledge total after confirming a pledge
+- See the number of total backers increment by one after confirming a pledge
+- Toggle whether or not the product is bookmarked
 
-### `yarn build`
+### Screenshot
 
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
+![https://www.dropbox.com/s/kla7soi6az97dlm/fm-crowdfunding-product-page-desktop.jpg?raw=1](https://www.dropbox.com/s/kla7soi6az97dlm/fm-crowdfunding-product-page-desktop.jpg?raw=1)
 
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
+### Links
 
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+- Solution URL: [https://github.com/anhek/frontendmentor-crowdfunding-product-page](https://github.com/anhek/frontendmentor-crowdfunding-product-page)
+- Live Site URL: [http://anhek-crowdfunding-product-page.netlify.app](http://anhek-crowdfunding-product-page.netlify.app)
 
-### `yarn eject`
+## My process
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Create React App](https://create-react-app.dev) - React framework
+- [React Redux](https://react-redux.js.org) - State container
+- [React Hook Form](http://react-hook-form.com) - Forms
+- [Chakra UI](https://chakra-ui.com) - For styles
+- [Sizzy](https://sizzy.co/) - For the responsive web design
 
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
+### Useful resources
 
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
+- [Redux Fundamentals](https://redux.js.org/tutorials/fundamentals/part-1-overview) - This is a serie of articles from the official documentation of Redux, It helped me to update my knowledge on React Redux.
+- [SVGOMG](https://jakearchibald.github.io/svgomg/) - Useful website for optimizing SVG
+- [React SVGR](https://react-svgr.com/playground/) - Turn SVG into React components
+- [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org) - I use the Google Chrome extension to check the project's accessibility features
+- [Chakra UI + React Hook Form](https://chakra-ui.com/guides/integrations/with-hook-form) - Article which helped me to integrate React Hook Form with Chakra UI
 
-## Learn More
+## Author
 
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Website - [Antonin Nhek](https://anhek.dev)
+- Frontend Mentor - [@anhek](https://www.frontendmentor.io/profile/anhek)
