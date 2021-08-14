@@ -121,7 +121,7 @@ const ProductPage = () => {
                 USB sticks to be stored under the stand.
               </Text>
 
-              <ProductStack />
+              <ProductStack openThankYouModal={thankYouModalOnOpen} />
             </Container>
           </Flex>
         </Flex>

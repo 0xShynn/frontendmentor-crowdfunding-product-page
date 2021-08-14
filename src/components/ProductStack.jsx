@@ -12,13 +12,21 @@ import { addNewBacker } from '../features/backers/backersSlice';
 import { addFunds } from '../features/funds/fundsSlice';
 import { addOrder, selectProducts } from '../features/products/productsSlice';
 
-const ProductStackItem = ({ title, desc, quantity, minPledgeAmount, id }) => {
+const ProductStackItem = ({
+  title,
+  desc,
+  quantity,
+  minPledgeAmount,
+  id,
+  openThankYouModal,
+}) => {
   const dispatch = useDispatch();
   function handleOrder() {
     if (quantity > 0) {
       dispatch(addNewBacker());
       dispatch(addFunds(minPledgeAmount));
       dispatch(addOrder(id, 1));
+      openThankYouModal();
     }
   }
 
@@ -55,7 +63,7 @@ const ProductStackItem = ({ title, desc, quantity, minPledgeAmount, id }) => {
   );
 };
 
-const ProductStack = () => {
+const ProductStack = ({ openThankYouModal }) => {
   const products = useSelector(selectProducts);
   return (
     <VStack spacing="6">
@@ -68,6 +76,7 @@ const ProductStack = () => {
             desc={product.desc}
             minPledgeAmount={product.minPledgeAmount}
             quantity={product.quantity}
+            openThankYouModal={openThankYouModal}
           />
         );
       })}
