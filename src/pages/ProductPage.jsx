@@ -53,6 +53,13 @@ const ProductPage = () => {
         bgRepeat="no-repeat"
         bgSize={{ base: 'contain', sm: 'cover' }}
       >
+        <Box
+          bg="linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);"
+          w="full"
+          h="200px"
+          pos="absolute"
+          zIndex="base"
+        />
         <Flex
           maxW="1120px"
           justify="center"
@@ -61,8 +68,14 @@ const ProductPage = () => {
           pb={['10', '18', '24']}
         >
           <Header />
-          <Flex justify="center" direction="column" mx="6">
-            <Container mt="20" pos="relative" textAlign="center" pb="10">
+          <Flex justify="center" direction="column" mx="6" role="main">
+            <Container
+              mt={{ base: '14', md: '0' }}
+              pos="relative"
+              textAlign="center"
+              pb="10"
+              role="banner"
+            >
               <Flex justify="center" mb="6">
                 <Image
                   src={logoMasterCraft}

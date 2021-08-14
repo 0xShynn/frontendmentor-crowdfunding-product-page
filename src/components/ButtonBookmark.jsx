@@ -11,7 +11,6 @@ const ButtonBookmark = () => {
     <>
       <Flex
         display={['flex', 'none']}
-        href="#"
         ml="2"
         rounded="full"
         aria-label="Bookmark this project"
@@ -33,7 +32,6 @@ const ButtonBookmark = () => {
         px="0"
         size="lg"
         display={['none', 'flex']}
-        href="#"
         aria-label="Bookmark this project"
         onClick={() => {
           setBookmarked(!bookmarked);
