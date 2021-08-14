@@ -4,6 +4,9 @@ import IconBookmark from '../assets/svg/IconBookmark';
 
 const ButtonBookmark = () => {
   const [bookmarked, setBookmarked] = useState(false);
+  const bgColorBookmark = bookmarked ? 'hsl(176, 50%, 47%)' : 'black';
+  const colorBookmark = bookmarked ? 'white' : '#B1B1B1';
+
   return (
     <>
       <Flex
@@ -15,8 +18,11 @@ const ButtonBookmark = () => {
       >
         <IconBookmark
           size="58"
-          bgcolor={bookmarked ? 'hsl(176, 50%, 47%)' : 'black'}
-          color={bookmarked ? 'white' : '#B1B1B1'}
+          bgcolor={bgColorBookmark}
+          color={colorBookmark}
+          onClick={() => {
+            setBookmarked(!bookmarked);
+          }}
         />
       </Flex>
 
@@ -35,8 +41,8 @@ const ButtonBookmark = () => {
       >
         <IconBookmark
           size="58"
-          bgcolor={bookmarked ? 'hsl(176, 50%, 47%)' : 'black'}
-          color={bookmarked ? 'white' : '#B1B1B1'}
+          bgcolor={bgColorBookmark}
+          color={colorBookmark}
         />
         <Text
           display={{ base: 'none', sm: 'flex' }}
