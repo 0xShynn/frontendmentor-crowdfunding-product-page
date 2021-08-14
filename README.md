@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/anhek/frontendmentor-crowdfunding-product-page](https://github.com/anhek/frontendmentor-crowdfunding-product-page)
-- Live Site URL: [http://anhek-crowdfunding-product-page.netlify.app](http://anhek-crowdfunding-product-page.netlify.app)
+- Live Site URL: [https://anhek-crowdfunding-product-page.netlify.app](http://anhek-crowdfunding-product-page.netlify.app)
 
 ## My process
 
