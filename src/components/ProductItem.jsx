@@ -32,7 +32,8 @@ const ProductItem = ({
 }) => {
   const dispatch = useDispatch();
 
-  const itemZero = id === '0';
+  const itemNoPledge = id === '0';
+  const itemIsAvailable = quantity > 0;
 
   const {
     handleSubmit,
@@ -41,7 +42,7 @@ const ProductItem = ({
   } = useForm();
 
   function onSubmit(values) {
-    if (quantity > 0) {
+    if (itemIsAvailable) {
       return new Promise((resolve) => {
         setTimeout(() => {
           dispatch(addNewBacker());
@@ -82,16 +83,16 @@ const ProductItem = ({
       m="0"
       p="0"
       borderColor={
-        id === selectedId && quantity > 0 ? 'primary.modeCyan' : 'gray.100'
+        id === selectedId && itemIsAvailable ? 'primary.modeCyan' : 'gray.100'
       }
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box
           p="6"
           // opacity={quantity === 0 ? '0.5' : '1'}
-          opacity={quantity > 0 ? '1' : '0.5'}
+          opacity={itemIsAvailable ? '1' : '0.5'}
           onClick={handleSelectTitle}
-          cursor={quantity > 0 || itemZero ? 'pointer' : 'not-allowed'}
+          cursor={itemIsAvailable || itemNoPledge ? 'pointer' : 'not-allowed'}
         >
           {/* mobile header */}
           <Flex display={['flex', 'none']} align="center" mb="4">
@@ -112,7 +113,7 @@ const ProductItem = ({
                 fontWeight="bold"
                 fontSize="sm"
                 color="primary.modeCyan"
-                display={itemZero ? 'none' : 'inline'}
+                display={itemNoPledge ? 'none' : 'inline'}
               >
                 Pledge ${minPledgeAmount} or more
               </Text>
@@ -123,7 +124,12 @@ const ProductItem = ({
           </Box>
           {/* desktop header */}
           <Flex display={['none', 'flex']}>
-            <Flex pr="4" pt="0.5" align="flex-start" mt={itemZero ? '0' : '1'}>
+            <Flex
+              pr="4"
+              pt="0.5"
+              align="flex-start"
+              mt={itemNoPledge ? '0' : '1'}
+            >
               <CustomRadio value={id} />
             </Flex>
 
@@ -144,7 +150,7 @@ const ProductItem = ({
                   //   color: 'primary.modeCyan',
                   // }}
                   _hover={
-                    quantity > 0
+                    itemIsAvailable
                       ? { color: 'primary.modeCyan' }
                       : { color: 'black' }
                   }
@@ -156,7 +162,7 @@ const ProductItem = ({
                   fontWeight="bold"
                   color="primary.modeCyan"
                   mr="2"
-                  display={itemZero ? 'none' : 'inline'}
+                  display={itemNoPledge ? 'none' : 'inline'}
                 >
                   Pledge ${minPledgeAmount} or more
                 </Text>
@@ -166,7 +172,7 @@ const ProductItem = ({
                   justify="flex-end"
                   display={{
                     base: 'none',
-                    sm: itemZero ? 'none' : 'flex',
+                    sm: itemNoPledge ? 'none' : 'flex',
                   }}
                   flex="1"
                 >
@@ -187,7 +193,7 @@ const ProductItem = ({
           </Flex>
 
           <Flex
-            display={selectedId === id && itemZero ? 'flex' : 'none'}
+            display={selectedId === id && itemNoPledge ? 'flex' : 'none'}
             justify="flex-end"
           >
             <Button
@@ -204,7 +210,7 @@ const ProductItem = ({
           </Flex>
           <Flex
             align="center"
-            display={{ base: itemZero ? 'none' : 'flex', sm: 'none' }}
+            display={{ base: itemNoPledge ? 'none' : 'flex', sm: 'none' }}
           >
             <Text
               fontWeight="bold"
@@ -219,7 +225,7 @@ const ProductItem = ({
           </Flex>
         </Box>
 
-        {quantity > 0 ? (
+        {itemIsAvailable ? (
           <Flex
             direction={{ base: 'column', sm: 'row' }}
             align="center"
