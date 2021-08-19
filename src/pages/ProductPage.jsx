@@ -74,7 +74,7 @@ const ProductPage = () => {
               pos="relative"
               textAlign="center"
               pb="10"
-              role="banner"
+              role="region"
             >
               <Flex justify="center" mb="6">
                 <Image
@@ -114,11 +114,11 @@ const ProductPage = () => {
               </Flex>
             </Container>
 
-            <Container>
+            <Container role="region">
               <ProductStats />
             </Container>
 
-            <Container>
+            <Container role="region">
               <Heading as="h3" fontSize="lg" mb="6" mt="4">
                 About this project
               </Heading>

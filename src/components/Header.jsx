@@ -39,7 +39,7 @@ const Header = () => {
   );
 
   return (
-    <Box mb={{ base: '24', md: '48' }} zIndex="overlay">
+    <Box mb={{ base: '24', md: '48' }} zIndex="overlay" role="banner">
       <Flex
         align="center"
         px="8"

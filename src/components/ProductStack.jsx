@@ -31,7 +31,12 @@ const ProductStackItem = ({
   }
 
   return (
-    <Container p={['6', '8']} opacity={quantity === 0 ? '0.5' : '1'} m="0">
+    <Container
+      p={['6', '8']}
+      opacity={quantity === 0 ? '0.5' : '1'}
+      m="0"
+      role="listitem"
+    >
       <Flex justify="space-between" mb="6" direction={['column', 'row']}>
         <Heading as="h3" fontSize="lg">
           {title}
@@ -66,7 +71,7 @@ const ProductStackItem = ({
 const ProductStack = ({ openThankYouModal }) => {
   const products = useSelector(selectProducts);
   return (
-    <VStack spacing="6">
+    <VStack spacing="6" role="list">
       {products.products.slice(1).map((product) => {
         return (
           <ProductStackItem
