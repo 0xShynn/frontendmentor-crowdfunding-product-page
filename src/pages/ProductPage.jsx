@@ -20,6 +20,7 @@ import imageHeroDesktop from '../assets/images/image-hero-desktop.jpg';
 import imageHeroMobile from '../assets/images/image-hero-mobile.jpg';
 import logoMasterCraft from '../assets/svg/logo-mastercraft.svg';
 import ProductStack from '../components/ProductStack';
+import AuthorBanner from '../components/AuthorBanner';
 
 const ProductPage = () => {
   const {
@@ -136,6 +137,7 @@ const ProductPage = () => {
 
               <ProductStack openThankYouModal={thankYouModalOnOpen} />
             </Container>
+            <AuthorBanner />
           </Flex>
         </Flex>
       </Box>
